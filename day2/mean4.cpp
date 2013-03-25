@@ -8,6 +8,7 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
+#include <numeric>
 
 using namespace std;
 
@@ -31,12 +32,9 @@ int main()
   dataFile.close();
 
   // Compute mean of the values stored in the vector
-
-  double total = 0;
-  for (int i = 0; i < data.size(); ++i) {
-    total += data[i];
-  }
-
+  // N.B. third arg in accumulate is init and has to be the
+  // *same* type as the stuff in the vector (double here)
+  double total = accumulate(data.begin(), data.end(), 0.0);
   double mean = total / data.size();
   cout << "Mean value = " << mean << endl;
 
