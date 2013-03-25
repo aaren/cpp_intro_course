@@ -32,6 +32,7 @@ int main() {
   double lower;
   double upper;
   cout << "Enter the lower and upper limits of the temperature range" << endl;
+  cout << "(Input units are fahrenheit)" << endl;
   cin >> lower >> upper;
 
   // QC user input
@@ -54,23 +55,21 @@ int main() {
 
   // Create vector of ouput temperatures
   vector<double> output_T;
-  int len_input = input_T.size();
-  for (int i = 0; i < len_input; i++){
-    double T_C = conv_F_to_C(input_T[i]);
-    output_T.push_back(T_C);
+  for (int i = 0; i < input_T.size(); i++){
+    output_T.push_back(conv_F_to_C(input_T[i]));
   }
 
   // Print a table
   // column widths
   int c1 = 14;
   int c2 = 12;
-  cout << "Temperature conversion table" << endl;
+  cout << setw(c1 + c2) << "Temperature conversion table" << endl;
   cout << setw(c1) << "Fahrenheit";
   cout << " | "; 
   cout << setw(c2) << "Celsius" << endl;
   // set precision
   int p = 3;
-  for (int i = 0; i < len_input; i++){
+  for (int i = 0; i < input_T.size(); i++){
     cout << setw(c1) << fixed << setprecision(p) << input_T[i];
     cout << " | ";
     cout << setw(c2) << fixed << setprecision(p) << output_T[i] << endl;
