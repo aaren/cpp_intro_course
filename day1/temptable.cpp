@@ -17,6 +17,7 @@ AOL, C++ Intro course, March 25 2012
 
 #include <iostream>
 #include <vector>
+#include <iomanip>
 
 using namespace std;
 
@@ -45,25 +46,34 @@ int main() {
   }
 
   // Create vector of input temperatures
-  vector<double> input_temps;
+  vector<double> input_T;
   double delta = 5;  // temperature increment
   for (lower; lower <= upper; lower += delta) {
-    input_temps.push_back(lower);
+    input_T.push_back(lower);
   }
 
   // Create vector of ouput temperatures
-  vector<double> output_temps;
-  int len_input = input_temps.size();
+  vector<double> output_T;
+  int len_input = input_T.size();
   for (int i = 0; i < len_input; i++){
-    double T_C = conv_F_to_C(input_temps[i]);
-    output_temps.push_back(T_C);
+    double T_C = conv_F_to_C(input_T[i]);
+    output_T.push_back(T_C);
   }
 
   // Print a table
+  // column widths
+  int c1 = 14;
+  int c2 = 12;
   cout << "Temperature conversion table" << endl;
-  cout << "Fahrenheit | Celsius" << endl;
+  cout << setw(c1) << "Fahrenheit";
+  cout << " | "; 
+  cout << setw(c2) << "Celsius" << endl;
+  // set precision
+  int p = 3;
   for (int i = 0; i < len_input; i++){
-    cout << input_temps[i] << " | " << output_temps[i] << endl;
+    cout << setw(c1) << fixed << setprecision(p) << input_T[i];
+    cout << " | ";
+    cout << setw(c2) << fixed << setprecision(p) << output_T[i] << endl;
   }
 
   return 0; 
