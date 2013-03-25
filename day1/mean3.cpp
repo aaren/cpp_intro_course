@@ -44,7 +44,7 @@ int main()
   // Compute mean of the values stored in the vector
 
   double total = 0;
-  for (int i = 1; i <= data.size(); ++i) {
+  for (unsigned int i = 0; i <= data.size(); ++i) {
     total += data[i];
   }
 
