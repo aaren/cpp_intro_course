@@ -54,7 +54,7 @@ int main() {
   // Create vector of ouput temperatures
   vector<double> output_temps;
   int len_input = input_temps.size();
-  for (int i = 0; i <= len_input; i++){
+  for (int i = 0; i < len_input; i++){
     double T_C = conv_F_to_C(input_temps[i]);
     output_temps.push_back(T_C);
   }
@@ -62,7 +62,7 @@ int main() {
   // Print a table
   cout << "Temperature conversion table" << endl;
   cout << "Fahrenheit | Celsius" << endl;
-  for (int i = 0; i <= len_input; i++){
+  for (int i = 0; i < len_input; i++){
     cout << input_temps[i] << " | " << output_temps[i] << endl;
   }
 
