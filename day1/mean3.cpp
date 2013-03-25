@@ -13,6 +13,8 @@
 
 #include <iostream>
 // TODO: include the vector header here
+// ok
+#include <vector>
 
 using namespace std;
 
@@ -23,7 +25,9 @@ int main()
   cout << "Enter values below (negative value quits):" << endl;
 
   // TODO: define a vector of doubles called 'data' here
+  // ok
   double value;
+  vector<double> data;
 
   while (true) {
     cin >> value;
@@ -32,6 +36,8 @@ int main()
     }
     else {
       // TODO: add line that puts value into the vector
+      // ok
+      data.push_back(value);
     }
   }
 
