@@ -28,6 +28,7 @@ int main()
     }
     else {
       total += value;
+      numValues += 1;
     }
   }
 
