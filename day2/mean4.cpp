@@ -13,22 +13,22 @@ using namespace std;
 
 int main()
 {
-  // Read values into vector
+  // read file object
+  ifstream dataFile("test.data");
+  if (! dataFile) {
+    cerr << "Cannot open data file" << endl;
+    return 1;
+  }
 
-  cout << "Enter values below (negative value quits):" << endl;
-
+  // fill vector
   vector<double> data;
   double value;
 
-  while (true) {
-    cin >> value;
-    if (value < 0) {
-      break;
-    }
-    else {
+  while (dataFile >> value) {
       data.push_back(value);
-    }
   }
+
+  dataFile.close();
 
   // Compute mean of the values stored in the vector
 
