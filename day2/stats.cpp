@@ -39,7 +39,7 @@ double mean (const vector<double>& data)
   return mean;
 }
 
-double median (vector<double> daa)
+double median (vector<double> data)
 {
   // compute the median of an input vector
   // why does this give errors when doing it outside doesn't??
