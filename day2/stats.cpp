@@ -25,9 +25,13 @@ void readData (istream& input, vector<double>& data)
 
 double mean (const vector<double>& data)
 {
-  // n.b. reference
-  // TODO: why is it reference here?? is this necessary?
   // Compute mean of the values stored in the vector
+  // n.b. reference
+  // why is it reference here?? is this necessary?
+  // It is because for a large vector, creating a copy of the vector
+  // is a bit inefficient. We have used const in the definition so that
+  // it cannot be altered.
+
   // N.B. third arg in accumulate is init and has to be the
   // *same* type as the stuff in the vector (double here)
   double total = accumulate(data.begin(), data.end(), 0.0);
@@ -35,12 +39,15 @@ double mean (const vector<double>& data)
   return mean;
 }
 
-double median (const vector<double>& data)
+double median (vector<double> daa)
 {
   // compute the median of an input vector
-  // sort the vector
   // why does this give errors when doing it outside doesn't??
-  // sort(data.begin(), data.end());
+  // Because we have used const in the definition --> can't modify.
+  // Get rid of the const and change to assignment by value to create
+  // a copy of the input - then our function doesn't have side effects.
+  // sort the vector
+  sort(data.begin(), data.end());
   // length of the vector
   int len = data.size();
   double med;
@@ -98,9 +105,9 @@ int main()
   cout << "Mean value = " << mean(data) << endl;
 
   // compute and print the median
-  sort(data.begin(), data.end());
   cout << "Median value = " << median(data) << endl;
 
+  // compute and print the standard deviation
   cout << "Standard deviation = " << std_dev(data) << endl;
 
   return 0;
