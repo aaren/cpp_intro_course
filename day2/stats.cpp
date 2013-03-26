@@ -10,6 +10,7 @@
 #include <fstream>
 #include <numeric>
 #include <algorithm>
+#include <cmath>
 
 using namespace std;
 
@@ -59,6 +60,34 @@ double median (const vector<double>& data)
   return med;
 }
 
+double std_dev (const vector<double>& data)
+{
+  // Compute the standard deviation
+  // mean
+  double mu = mean(data);
+  int N = data.size();
+  // square of mean subtracted values
+  vector<double> norm_data(N);
+  for (int i = 0; i < N; i++){
+    norm_data[i] = pow(data[i] - mu, 2);
+  }
+  // norm sum
+  double norm_sum = accumulate(norm_data.begin(), norm_data.end(), 0.0) / N;
+  cout << data[0] << " " << norm_data[0] << endl;
+  cout << data[1] << " " << norm_data[1] << endl;
+  cout << data[2] << " " << norm_data[2] << endl;
+  cout << data[3] << " " << norm_data[3] << endl;
+  cout << data[4] << " " << norm_data[4] << endl;
+  cout << data[5] << " " << norm_data[5] << endl;
+  cout << data[6] << " " << norm_data[6] << endl;
+  cout << "mean is " << mu << endl;
+  cout << "# of samples is " << N << endl;
+  cout << "normalised sum is " << norm_sum << endl;
+  // std dev
+  double sigma = sqrt(norm_sum);
+  return sigma;
+}
+
 int main()
 {
   // read file object
@@ -81,6 +110,8 @@ int main()
   // compute and print the median
   sort(data.begin(), data.end());
   cout << "Median value = " << median(data) << endl;
+
+  cout << "Standard deviation = " << std_dev(data) << endl;
 
   return 0;
 }
