@@ -24,7 +24,8 @@ double Dataset::mean() const
 double Dataset::median() const
 {
   // make a copy of data vector so this method can stay const
-  vector<double> v(data);
+  // vector<double> v(data);
+  vector<double> v = data;
   sort(v.begin(), v.end());
   int len = v.size();
   double med;
