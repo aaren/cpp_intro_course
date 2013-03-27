@@ -1,5 +1,5 @@
-stats: stats.o data.o calc.o
-	g++ -o stats stats.o data.o calc.o
+stats: stats.o libstats.a
+	g++ -L. -o stats stats.o -lstats
 
 stats.o: stats.cpp data.hpp calc.hpp
 	g++ -c stats.cpp
@@ -15,3 +15,8 @@ clean:
 
 veryclean: clean
 	rm -f stats
+	rm -f libstats.a
+
+libstats.a: data.o calc.o
+	ar crv libstats.a data.o calc.o
+	ranlib libstats.a
