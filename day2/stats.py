@@ -33,7 +33,10 @@ def std_dev(data):
 
 def main():
     # read file object
-    f = open("test.data")
+    try:
+        f = open("test.data")
+    except IOError:
+        exit('Cannot open data file')
     # populate list of values
     data = readData(f)
     f.close()
