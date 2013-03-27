@@ -9,6 +9,7 @@ int main (int argc, char* argv[]) {
   Dataset data(input);
   cout << "The mean is " << data.mean() << endl;
   cout << "The median is " << data.median() << endl;
+  cout << "The standard deviation is " << data.std_dev() << endl;
   return 0;
 }
 

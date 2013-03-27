@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <numeric>
 #include <vector>
+#include <cmath>
 
 using namespace std;
 
@@ -36,4 +37,20 @@ double Dataset::median() const
   return med;
 }
 
-
+double Dataset::std_dev() const
+{
+  // Compute the standard deviation
+  // mean
+  double mu = mean();
+  int N = data.size();
+  // square mean subtracted values
+  vector<double> norm_data(N);
+  for (int i = 0; i < N; i++){
+    norm_data[i] = pow(data[i] - mu, 2);
+  }
+  // norm sum
+  double norm_sum = accumulate(norm_data.begin(), norm_data.end(), 0.0) / N;
+  // std dev
+  double sigma = sqrt(norm_sum);
+  return sigma;
+}
