@@ -5,15 +5,10 @@
    called numbers.txt.
 */
 
-#include <iostream>
-#include <vector>
-#include <fstream>
-#include <numeric>
-#include <algorithm>
-#include <cmath>
-
 #include "data.hpp"
 #include "calc.hpp"
+#include <iostream>
+#include <fstream>
 
 using namespace std;
 

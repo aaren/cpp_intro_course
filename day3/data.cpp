@@ -1,5 +1,4 @@
-#include <vector>
-#include <fstream>
+#include "data.hpp"
 
 using namespace std;
 

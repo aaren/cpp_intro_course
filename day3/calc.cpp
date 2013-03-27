@@ -1,3 +1,4 @@
+#include "calc.hpp"
 #include <iostream>
 #include <vector>
 #include <numeric>
