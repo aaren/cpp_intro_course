@@ -19,11 +19,17 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
+  // Check for filename on command line
+  if (argc < 2) {
+    cerr << "Usage: stats <filename>" << endl;
+    return 1;
+  }
+
   // read file object
   ifstream dataFile(argv[1]);
   if (! dataFile) {
-    cerr << "Cannot open data file" << endl;
-    return 1;
+    cerr << "Cannot open data file" << argv[1] << endl;
+    return 2;
   }
 
   // create and fill vector
