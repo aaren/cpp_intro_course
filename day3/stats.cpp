@@ -85,10 +85,10 @@ double std_dev (const vector<double>& data)
   return sigma;
 }
 
-int main()
+int main(int argc, char* argv[])
 {
   // read file object
-  ifstream dataFile("test.data");
+  ifstream dataFile(argv[1]);
   if (! dataFile) {
     cerr << "Cannot open data file" << endl;
     return 1;
